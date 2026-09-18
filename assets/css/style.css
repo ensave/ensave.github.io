@@ -1,0 +1,328 @@
+/* ===========================================================
+   ensave web  -  common stylesheet
+   単一のスタイルシートで全ページを賄う。ページを増やすときは
+   このファイルに追記するだけでよい。
+   =========================================================== */
+
+/* ---------- デザイントークン ---------- */
+:root {
+  /* ブランド（アプリと同じメインカラー #3AC661） */
+  --brand: #3ac661;
+  --brand-dark: #2a9a4a; /* リンク文字に使う。白背景でコントラスト比 4.5:1 以上 */
+  --brand-soft: #eef9f1;
+
+  /* テキスト */
+  --text: #1f2328;
+  --text-muted: #5c636a;
+
+  /* 面と線 */
+  --bg: #ffffff;
+  --bg-subtle: #f7f9f8;
+  --border: #e3e8e5;
+
+  /* レイアウト */
+  --measure: 42rem; /* 本文の最大幅（1行あたり40〜45文字程度） */
+  --page-padding: 20px;
+  --radius: 12px;
+
+  /* フォーカスリング */
+  --focus: #1a6fd4;
+}
+
+/* ---------- リセット ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    "Yu Gothic UI", "Yu Gothic", Meiryo, system-ui, -apple-system, sans-serif;
+  /* 長文を読ませるページなので本文は 17px。スマホでも小さくならないようにする */
+  font-size: 17px;
+  line-height: 1.9;
+  /* 320px 幅でも横スクロールさせない */
+  overflow-wrap: break-word;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- 共通の中央寄せコンテナ ---------- */
+.container {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+}
+
+/* ヘッダー／フッターは本文より少し広く使う */
+.container--wide {
+  max-width: 60rem;
+}
+
+/* ---------- スキップリンク（キーボード操作用） ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--brand-dark);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0 0 var(--radius) 0;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* ---------- ヘッダー ---------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  padding-block: 14px;
+}
+
+.site-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-logo:hover,
+.site-logo:focus-visible {
+  color: var(--brand-dark);
+}
+
+/* ---------- グローバルナビ ---------- */
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: 4px 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--brand-dark);
+  border-bottom-color: var(--brand);
+}
+
+/* 現在表示中のページ */
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 700;
+  border-bottom-color: var(--brand);
+}
+
+/* ---------- メイン ---------- */
+.main {
+  padding-block: 40px 64px;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
+
+.page-meta {
+  margin: 0 0 32px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- 本文の体裁 ---------- */
+.prose h2 {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin: 48px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose h3 {
+  font-size: 1.05rem;
+  margin: 32px 0 8px;
+}
+
+.prose p {
+  margin: 0 0 1.4em;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1.4em;
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose a {
+  color: var(--brand-dark);
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* お問い合わせ先などの項目一覧 */
+.info-list {
+  margin: 0 0 1.4em;
+  padding: 0;
+  list-style: none;
+}
+
+.info-list li {
+  margin-bottom: 0.3em;
+}
+
+/* ---------- トップページのヒーロー ---------- */
+.hero {
+  padding-block: 64px 40px;
+  text-align: center;
+  background: var(--brand-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero__title {
+  margin: 0 0 8px;
+  font-size: 2.5rem;
+  letter-spacing: 0.02em;
+}
+
+.hero__tagline {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ---------- カード型リンク（トップの目次） ---------- */
+.card-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: block;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: inherit;
+  text-decoration: none;
+}
+
+.card:hover,
+.card:focus-visible {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+
+.card__title {
+  display: block;
+  font-weight: 700;
+}
+
+.card__desc {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ---------- フッター ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-subtle);
+  padding-block: 32px;
+  font-size: 0.9rem;
+}
+
+.site-footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer a {
+  color: var(--brand-dark);
+  text-underline-offset: 3px;
+}
+
+.site-footer__copyright {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* ---------- フォーカス表示（キーボード操作） ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- 小さい画面 ---------- */
+@media (max-width: 480px) {
+  :root {
+    --page-padding: 16px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding-block: 44px 32px;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+}
