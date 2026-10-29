@@ -26,6 +26,7 @@
         <nav class="site-nav" aria-label="グローバルナビゲーション">
           <ul>
             <li><a href="../">ホーム</a></li>
+            <li><a href="../guide/">使い方</a></li>
             <li><a href="../privacy/">プライバシーポリシー</a></li>
             <li><a href="../terms/">利用規約</a></li>
             <li><a href="./" aria-current="page">アカウント削除</a></li>
@@ -38,7 +39,7 @@
     <main class="main" id="main">
       <div class="container">
         <h1 class="page-title">アカウントの削除について</h1>
-        <p class="page-meta">最終更新日：2026年9月19日</p>
+        <p class="page-meta">最終更新日：{{PUBLISH_DATE}}</p>
 
         <div class="prose">
           <p>ensave では、アプリの中からいつでもアカウントを削除できます。</p>
@@ -47,7 +48,12 @@
           <ol>
             <li>ensave を開きます。</li>
             <li>画面下の「設定」を選びます。</li>
-            <li>「アカウント連携」を選びます。</li>
+            <li>
+              「データとアカウント」を選び、続けて「アカウント連携・アカウント削除」を選びます。
+              <ul>
+                <li>1.1.0 より前のバージョンで、設定に「データとアカウント」が無い場合は、「アカウント連携」を選びます。</li>
+              </ul>
+            </li>
             <li>画面下の「アカウントを削除する」を選びます。</li>
             <li>確認画面で「削除する」を選びます。</li>
             <li>
@@ -110,6 +116,7 @@
       <div class="container container--wide">
         <nav aria-label="フッターナビゲーション">
           <ul>
+            <li><a href="../guide/">使い方</a></li>
             <li><a href="../privacy/">プライバシーポリシー</a></li>
             <li><a href="../terms/">利用規約</a></li>
             <li><a href="../account-deletion/">アカウント削除</a></li>
