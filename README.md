@@ -15,6 +15,7 @@ App Store / Google Play の審査で必要になる、プライバシーポリ�
 | URL | ファイル | 内容 |
 |---|---|---|
 | `/` | `index.html` | サービス名・コンセプト・各ページへの目次 |
+| `/guide/` | `guide/index.html` | 使い方（予算・支出の記録・残高・カレンダー・自分と共有・設定） |
 | `/privacy/` | `privacy/index.html` | プライバシーポリシー |
 | `/terms/` | `terms/index.html` | 利用規約 |
 | `/account-deletion/` | `account-deletion/index.html` | アカウント削除について |
@@ -27,6 +28,7 @@ App Store / Google Play の審査で必要になる、プライバシーポリ�
 ```
 ensave-web/
   index.html
+  guide/index.html
   privacy/index.html
   terms/index.html
   account-deletion/index.html
