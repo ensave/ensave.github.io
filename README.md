@@ -15,6 +15,7 @@ App Store / Google Play の審査で必要になる、プライバシーポリ�
 | URL | ファイル | 内容 |
 |---|---|---|
 | `/` | `index.html` | サービス名・コンセプト・各ページへの目次 |
+| `/guide/` | `guide/index.html` | 使い方（予算・支出の記録・残高・カレンダー・自分と共有・設定） |
 | `/privacy/` | `privacy/index.html` | プライバシーポリシー |
 | `/terms/` | `terms/index.html` | 利用規約 |
 | `/account-deletion/` | `account-deletion/index.html` | アカウント削除について |
@@ -27,6 +28,7 @@ App Store / Google Play の審査で必要になる、プライバシーポリ�
 ```
 ensave-web/
   index.html
+  guide/index.html
   privacy/index.html
   terms/index.html
   account-deletion/index.html
@@ -105,6 +107,22 @@ python -m http.server 8000
 - 値が決まっていない箇所を、仮の値で埋めて公開しない。決まるまでは手元で作業し、push しない
 - 本文を変えたら、各ページ冒頭の「最終更新日」も更新する
 - 削除・ペア解除・招待コード・Apple/Google 連携・Analytics・Crashlytics の説明は、4ページで同じ事実関係にそろえる
+
+### 公開前に置き換える値（2nd Release）
+
+アプリの新しいバージョン（1.1.0）の公開に合わせて、次の値を**公開する直前に**置き換える。
+（アプリのバージョン番号は 2026-10-29 に 1.1.0 と決まり、本文に反映済み。）
+置き換え忘れは画面にそのまま表示されるので、公開前に必ず検索して 0 件にする。
+
+| 値 | 置き換える内容 | 例 |
+|---|---|---|
+| `{{PUBLISH_DATE}}` | そのページを公開する日（PR を作った日ではない） | `2026年11月10日` |
+
+```bash
+grep -rn "{{" --include=index.html .
+```
+
+→ 何も表示されなければ置き換え完了。
 
 ### push 前の最終チェック
 
